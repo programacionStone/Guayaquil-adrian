@@ -1,0 +1,338 @@
+<!doctype html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Guayaquil - Ecuador, Fiestas Julianas">
+    <title>Guayaquil - Ecuador</title>
+    <link rel="stylesheet" href="CSS/proyecto.css" type="text/css" />
+    <link rel="stylesheet" href="CSS/contenedor.css" type="text/css" />
+    <style>
+        /* -------------------- GLOBAL -------------------- */
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', sans-serif;
+            background: #f4faff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        h1, h2, h3, h4 { margin: 0; }
+
+        /* -------------------- HEADER -------------------- */
+        header {
+            background-color: #003e51;
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+        }
+
+        header .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        header .logo img {
+            height: 80px;
+            width: auto;
+            transition: transform 0.4s;
+        }
+
+        header .logo img:hover {
+            transform: scale(1.15) rotate(-5deg);
+        }
+
+        header .logo h1 {
+            color: white;
+            font-size: 26px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #005f75;
+            color: #9feafc;
+        }
+
+        /* -------------------- SECCION PRINCIPAL -------------------- */
+        .Fecha {
+            margin: 40px 0 20px;
+            text-align: center;
+            font-size: 30px;
+            color: #003e51;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+            animation: fadeInDown 1s ease forwards;
+        }
+
+        @keyframes fadeInDown {
+            0% { opacity: 0; transform: translateY(-30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .contenedor {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto 60px;
+        }
+
+        .caja {
+            background-color: white;
+            padding: 25px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            flex: 1 1 400px;
+            text-align: justify;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        .caja:nth-child(1) { animation-delay: 0.2s; }
+        .caja:nth-child(2) { animation-delay: 0.4s; }
+        .caja:nth-child(3) { animation-delay: 0.6s; }
+        .caja:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes fadeInUp {
+            0% { opacity: 0; transform: translateY(30px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        .caja:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .caja img,
+        .caja iframe {
+            display: block;
+            margin: 20px auto;
+            max-width: 100%;
+            border-radius: 15px;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .caja img:hover,
+        .caja iframe:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .caja h2 {
+            text-align: center;
+            color: #007b8a;
+            margin-bottom: 15px;
+        }
+
+        /* Centrar el iframe de YouTube y hacerlo grande */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%;
+            height: 0;
+            overflow: hidden;
+            border-radius: 15px;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* -------------------- FOOTER ANIMADO -------------------- */
+        #footer {
+            position: relative;
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+            background: linear-gradient(270deg, #003e51, #005f75, #0097a7);
+            background-size: 600% 600%;
+            animation: gradientMove 20s ease infinite;
+            overflow: hidden;
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        #footer h3 { margin-bottom: 10px; font-size: 22px; }
+        #footer p, #footer a { color: white; font-size: 14px; text-decoration: none; }
+
+        .social-icons { margin: 15px 0; }
+        .social-icons img {
+            width: 40px;
+            margin: 0 10px;
+            transition: transform 0.3s, filter 0.3s;
+        }
+
+        .social-icons img:hover {
+            transform: scale(1.4) rotate(10deg);
+            filter: brightness(1.4);
+        }
+
+        .back-to-top {
+            position: absolute;
+            right: 20px;
+            bottom: 20px;
+            background-color: #9feafc;
+            color: #003e51;
+            padding: 12px 18px;
+            border-radius: 50%;
+            font-size: 22px;
+            text-decoration: none;
+            box-shadow: 0 5px 18px rgba(0, 0, 0, 0.4);
+            animation: bounce 2s infinite;
+            z-index: 10;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px) scale(1.2);
+            background-color: #cdeeff;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .particles span {
+            position: absolute;
+            display: block;
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.6);
+            border-radius: 50%;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .particles span:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .particles span:nth-child(2) { left: 25%; animation-delay: 1s; }
+        .particles span:nth-child(3) { left: 40%; animation-delay: 2s; }
+        .particles span:nth-child(4) { left: 55%; animation-delay: 3s; }
+        .particles span:nth-child(5) { left: 70%; animation-delay: 4s; }
+        .particles span:nth-child(6) { left: 85%; animation-delay: 5s; }
+
+        @keyframes float {
+            0% { transform: translateY(0) scale(1); opacity: 1; }
+            50% { transform: translateY(-35px) scale(1.2); opacity: 0.7; }
+            100% { transform: translateY(0) scale(1); opacity: 1; }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">
+            <img src="Imagenes/guayaquil.png" alt="Logo Guayaquil">
+            <h1>Guayaquil - Ecuador</h1>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="#">Inicio</a></li>
+                <li><a href="https://www.lhistoria.com/ecuador/guayaquil#:~:text=Fue%20fundada..." target="_blank">Quiénes somos</a></li>
+                <li><a href="https://guayaquil.gob.ec/">Contactar</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main>
+        <section>
+            <div class="Fecha"><h1>Guayaquil 25 de julio</h1></div>
+            <div class="contenedor">
+                <div class="caja">
+                    <h2>GUAYAQUIL</h2>
+                    <p>La fundación de Santiago de Guayaquil es uno de los eventos históricos más significativos de Ecuador, pues marca el origen de una de las ciudades más importantes del país. Esta celebración se lleva a cabo cada 25 de julio, fecha en la que se conmemora la fundación española encabezada por Francisco de Orellana en 1538. Hoy en día, resulta un momento propicio para reflexionar sobre cómo los trámites y servicios han evolucionado en la ciudad conocida como la "Perla del Pacífico".</p>
+                    <p>A lo largo de los años, Guayaquil ha experimentado un inmenso crecimiento, no solo demográfico y económico, sino también en la mejora continua de la oferta de servicios públicos y la simplificación de procedimientos administrativos. Los trámites en Guayaquil y en todo Ecuador han dado un salto hacia la modernidad, implementando sistemas tecnológicos que facilitan la vida del ciudadano.</p>
+                </div>
+
+                <div class="caja">
+                    <h2>VIDEO DESTACADO</h2>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/ZP93A_S_FOc" 
+                            title="Video de Guayaquil" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <div class="caja">
+                    <img src="Imagenes/guayaquil_1.webp" alt="Imagen Guayaquil">
+                </div>
+
+                <div class="caja">
+                    <h2>LUGARES TURÍSTICOS</h2>
+                    <p><b>Malecón 2000:</b> Un paseo marítimo con jardines, monumentos, centros comerciales, restaurantes y áreas de entretenimiento.</p>
+                    <p><b>Parque de las Iguanas:</b> Un oasis urbano donde puedes observar y acercarte a las iguanas que habitan libremente en el parque.</p>
+                    <p><b>Las Peñas:</b> El barrio más antiguo de la ciudad, conocido por sus casas coloridas y arquitectura colonial, además de ser un centro cultural y artístico.</p>
+                    <p><b>Cerro Santa Ana:</b> Un cerro con 444 escalones que conducen a la cima, donde encontrarás un faro con vistas panorámicas de la ciudad.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER ANIMADO -->
+    <footer id="footer">
+        <div>
+            <h3>Municipio de Guayaquil</h3>
+            <p><b>Dirección:</b> Av. Malecón Simón Bolívar entre Clemente Ballén y 10 de Agosto, Guayaquil, Ecuador</p>
+            <p><b>Correo:</b> <a href="mailto:info@guayaquil.gob.ec">info@guayaquil.gob.ec</a></p>
+            <p><b>Teléfono:</b> +593 4 259-4800</p>
+        </div>
+
+        <div class="social-icons">
+            <h4>Síguenos en redes sociales</h4>
+            <a href="https://www.facebook.com/alcaldiaguayaquil" target="_blank"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook"></a>
+            <a href="https://x.com/alcaldiagye" target="_blank"><img src="https://vectorseek.com/wp-content/uploads/2023/07/Twitter-X-Logo-Vector-01-2.jpg" alt="Twitter"></a>
+            <a href="https://www.instagram.com/municipiodeguayaquil/" target="_blank"><img src="https://www.iservice.at/wp-content/uploads/2020/12/Instagram-Flaticon.png" alt="Instagram"></a>
+            <a href="https://www.guayaquil.gob.ec/" target="_blank"><img src="https://www.guayaquil.gob.ec/wp-content/uploads/2024/02/banner-orden-dia-mobile-v2.jpg" alt="Web"></a>
+        </div>
+
+        <a href="#" class="back-to-top"⬆️</a>
+        <p style="margin-top: 20px; font-size: 12px;">© 2025 Municipio de Guayaquil. Todos los derechos reservados.</p>
+
+        <div class="particles">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.back-to-top').addEventListener('click', e => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>

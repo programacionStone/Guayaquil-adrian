@@ -1,0 +1,38 @@
+body{
+font-family:san-serif;
+margin:0;
+}
+a{
+text-decoration:none;
+color:black;
+}
+header{
+display:flex;
+height:150px;
+background-color:#1B4685;
+justify-content: space-between;
+align-items:center;
+}
+.logo{
+display:flex;
+align-items:center;
+}
+.contenedor{
+display:Flex;
+}
+.caja{
+border:10px groove #B0D3FF;
+background-color: #B1DBE3;
+width:700px;
+heigth:400px;
+text-align: center;
+}
+footer{
+background-color: #8CCFC5;
+}
+.Fecha{
+margin-top: 40px;
+border:2px solid black;
+text-align: center;
+background-color: #B1DBE3;
+}

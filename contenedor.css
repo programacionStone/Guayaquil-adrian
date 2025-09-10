@@ -1,0 +1,8 @@
+.contenedor{
+display:Flex;
+}
+.Elemento{
+width:50%;
+border:10px groove red;
+background-color: green;
+}

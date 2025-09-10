@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="description" content="Resumen del contenido de la página">   
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiestas Julianas</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f8f9fa;
+      color: #222;
+    }
+
+    header.encabezado {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .logo-titulo {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo-titulo img {
+      height: 70px;
+      width: auto;
+      border-radius: 12px;
+    }
+
+    .titulo {
+      font-size: 26px;
+      font-weight: 600;
+      color: #007b8a;
+    }
+
+    nav.menu ul {
+      list-style: none;
+      display: flex;
+      gap: 25px;
+    }
+
+    nav.menu ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      font-size: 16px;
+      padding: 8px 15px;
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+
+    nav.menu ul li a:hover {
+      background-color: #007b8a;
+      color: white;
+      transform: translateY(-3px);
+    }
+
+    main {
+      text-align: center;
+      padding: 80px 20px;
+    }
+
+    main h2 {
+      font-size: 36px;
+      color: #007b8a;
+      margin-bottom: 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    main p {
+      font-size: 18px;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+      color: #444;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    footer {
+      background: #007b8a;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<header class="encabezado">
+  <div class="logo-titulo">
+    <img src="Imagenes/guayaquil.png" alt="Logo de Guayaquil">
+    <h1 class="titulo">Fiestas Julianas</h1>
+  </div>
+
+  <nav class="menu">
+    <ul>
+      <li><a href="proyecto.html">Inicio</a></li>
+      <li><a href="quienes%20somos.html">Quienes somos</a></li>
+      <li><a href="contactanos.html">Contactos</a></li>
+    </ul>
+  </nav>
+</header>
+
+<main>
+  <h2>Bienvenidos a las Fiestas Julianas</h2>
+  <p>
+    Celebremos juntos la historia, cultura y tradición de nuestra querida ciudad de Guayaquil.  
+    Descubre los eventos, actividades y todo lo que hace de estas fiestas una experiencia única.
+  </p>
+</main>
+
+<footer>
+  © 2025 Municipio de Guayaquil. Todos los derechos reservados.
+</footer>
+
+</body>
+</html>

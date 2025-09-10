@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mapa de Guayaquil</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f9ff;
+      transition: background-color 0.3s;
+    }
+
+    header {
+      background-color: #007b8a;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .titulo {
+      margin: 0;
+      font-size: 24px;
+    }
+
+    .boton-inicio {
+      background-color: white;
+      color: #007b8a;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .boton-inicio:hover {
+      background-color: #cceff2;
+    }
+
+    .contenido {
+      max-width: 1000px;
+      margin: 30px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      transition: background-color 0.3s;
+    }
+
+    h2, h3 {
+      color: #007b8a;
+    }
+
+    p {
+      text-align: justify;
+      line-height: 1.6;
+    }
+
+    #mapa {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .modo {
+      margin-top: 20px;
+      text-align: right;
+    }
+
+    .switch {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0; left: 0;
+      right: 0; bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 24px;
+      width: 24px;
+      left: 3px;
+      bottom: 3px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #007b8a;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+
+    #clima {
+      margin-top: 30px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1 class="titulo">Mapa de Guayaquil</h1>
+    <!-- ✅ Botón Inicio con la ruta que me diste -->
+    <a class="boton-inicio" href="file:///E:/Pagiina%20web/Index%203er%20A/quienes%20somos.html">Inicio</a>
+  </header>
+
+  <div class="contenido">
+    <h2>Ciudad de Guayaquil</h2>
+    <p>
+      Guayaquil es la ciudad más grande del Ecuador, ubicada en la región litoral. Es el principal puerto del país y una de las ciudades más importantes en comercio, cultura y turismo.
+    </p>
+
+    <p>
+      Se encuentra a orillas del río Guayas y cuenta con una altitud media de 4 metros sobre el nivel del mar. Su clima es tropical sabana, con temperaturas promedio de 28°C.
+    </p>
+
+    <h3>Mapa interactivo de Guayaquil</h3>
+    <div id="mapa"></div>
+
+    <div class="modo">
+      <label for="toggle">Modo Nocturno</label>
+      <label class="switch">
+        <input type="checkbox" id="toggle">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <!-- Widget del clima -->
+    <div id="clima">
+      <a class="weatherwidget-io" id="widgetClima"
+         href="https://forecast7.com/es/2d20n79d90/guayaquil/"
+         data-label_1="GUAYAQUIL" data-label_2="CLIMA"
+         data-theme="original">GUAYAQUIL CLIMA</a>
+      <script>
+        !function(d,s,id){
+          var js,fjs=d.getElementsByTagName(s)[0];
+          if(!d.getElementById(id)){
+            js=d.createElement(s);js.id=id;
+            js.src='https://weatherwidget.io/js/widget.min.js';
+            fjs.parentNode.insertBefore(js,fjs);
+          }
+        }(document,'script','weatherwidget-io-js');
+      </script>
+    </div>
+  </div>
+
+  <!-- Google Maps JS API con tu API KEY -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjN2XHj6cphFqeh7o3Uzq1lhUGYDFiets"></script>
+  <script>
+    let map;
+    let darkMode = false;
+
+    const estiloOscuro = [
+      { elementType: "geometry", stylers: [{ color: "#1d2c4d" }] },
+      { elementType: "labels.text.fill", stylers: [{ color: "#8ec3b9" }] },
+      { elementType: "labels.text.stroke", stylers: [{ color: "#1a3646" }] },
+      { featureType: "administrative", elementType: "geometry", stylers: [{ color: "#223b59" }] },
+      { featureType: "poi", elementType: "labels.text.fill", stylers: [{ color: "#74a6ad" }] },
+      { featureType: "road", elementType: "geometry", stylers: [{ color: "#304a7d" }] },
+      { featureType: "water", elementType: "geometry", stylers: [{ color: "#0e1626" }] },
+    ];
+
+    function initMap() {
+      map = new google.maps.Map(document.getElementById("mapa"), {
+        center: { lat: -2.1896, lng: -79.8891 },
+        zoom: 13,
+        styles: [],
+      });
+
+      new google.maps.Marker({
+        position: { lat: -2.1896, lng: -79.8891 },
+        map: map,
+        title: "Guayaquil, Ecuador"
+      });
+    }
+
+    document.getElementById("toggle").addEventListener("change", function () {
+      darkMode = !darkMode;
+
+      // Cambiar estilo del mapa
+      map.setOptions({ styles: darkMode ? estiloOscuro : [] });
+      document.body.style.backgroundColor = darkMode ? "#0b1f2b" : "#f0f9ff";
+      document.querySelector('.contenido').style.backgroundColor = darkMode ? "#162d3d" : "white";
+
+      // Cambiar tema del widget del clima
+      const climaWidget = document.getElementById("widgetClima");
+      if (climaWidget) {
+        climaWidget.setAttribute("data-theme", darkMode ? "dark" : "original");
+        if (window.__weatherwidget_init) window.__weatherwidget_init();
+      }
+    });
+
+    window.onload = initMap;
+  </script>
+
+</body>
+</html>

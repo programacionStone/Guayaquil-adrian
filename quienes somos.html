@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="description" content="Resumen del contenido de la página">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fiestas Julianas</title>
+  <link rel="stylesheet" href="CSS/proyecto.css" type="text/css" />
+  <link rel="stylesheet" href="CSS/contenedor.css" type="text/css" />
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #d1ecf1, #ffffff);
+    }
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    header {
+      background-color: #007b8a;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 30px;
+    }
+    .historia-container {
+      background: white;
+      padding: 30px;
+      max-width: 800px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+      animation: fadeIn 2s ease-in-out;
+    }
+    .historia-container h2, h3 {
+      color: #007b8a;
+    }
+    .historia-container p {
+      text-align: justify;
+      line-height: 1.6;
+    }
+    .historia-container img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+    .historia-container img:hover {
+      transform: scale(1.05);
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    footer {
+      background-color: #003e51;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <img src="Imagenes/guayaquil.png" height="100" width="130" alt="Logo Guayaquil">
+      <h2 class="titulo">FIESTAS JULIANAS</h2>
+    </div>
+    <nav>
+      <a href="file:///E:/Pagiina%20web/Index%203er%20A/Pagina%20web%20%231.html">Inicio</a>
+      <a href="file:///E:/Pagiina%20web/Index%203er%20A/ubicacion.html">Ubicacion</a>
+      <a href="file:///E:/Pagiina%20web/Index%203er%20A/contactanos.html">Contactos</a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="historia-container">
+      <h2>Guayaquil: Historia de una ciudad valiente</h2>
+      <p>
+        Guayaquil, conocida como la "Perla del Pacífico", es la ciudad más grande del Ecuador y su principal puerto marítimo. Fue fundada el 25 de julio de 1538, y desde entonces ha jugado un papel crucial en la historia del país.
+      </p>
+      <p>
+        Uno de los momentos más importantes ocurrió el 9 de octubre de 1820, cuando Guayaquil proclamó su independencia del dominio español, marcando el inicio de la liberación del resto del país. Hoy en día, la ciudad es símbolo de progreso, comercio, cultura y orgullo nacional.
+      </p>
+
+      <img src="Imagenes/antiguo.jpg" alt="Malecón antiguo de Guayaquil">
+
+      <h3>Ciudad de Guayaquil en la actualidad</h3>
+      <p>Hoy Guayaquil es una ciudad moderna, con arquitectura contemporánea, espacios culturales, parques urbanos y un fuerte desarrollo económico.</p>
+      <img src="Imagenes/actualidad.jpg" alt="Ciudad de Guayaquil actual">
+
+      <!-- Botón Interactivo -->
+      <button onclick="mostrarDato()" style="padding: 10px 20px; background-color: #007b8a; color: white; border: none; border-radius: 5px; cursor: pointer;">Dato Curioso</button>
+      <p id="dato-curioso" style="margin-top: 15px; color: #004b57; font-weight: bold;"></p>
+
+      <!-- Sección Barrio Las Peñas -->
+      <h3>El Barrio Las Peñas</h3>
+      <p>
+        El barrio Las Peñas es uno de los sectores más antiguos y tradicionales de Guayaquil. Con sus casas coloridas, calles empedradas y su historia vibrante, este barrio fue declarado Patrimonio Cultural en 1982. Desde el cerro Santa Ana se puede observar una de las vistas más hermosas de la ciudad.
+      </p>
+
+      <!-- Carrusel de imágenes locales -->
+      <div id="carrusel" style="position: relative; width: 100%; height: 300px; overflow: hidden; border-radius: 10px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+        <img id="imagen-carrusel" src="Imagenes/frente.jpg" alt="Barrio Las Peñas" style="width: 100%; height: 100%; object-fit: cover; transition: opacity 1s;">
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div style="margin-bottom: 15px;">
+      <h3>Municipio de Guayaquil</h3>
+      <p><b>Dirección:</b> Av. Malecón Simón Bolívar entre Clemente Ballén y 10 de Agosto, Guayaquil, Ecuador</p>
+      <p><b>Correo:</b> <a href="mailto:info@guayaquil.gob.ec" style="color:#9feafc;">info@guayaquil.gob.ec</a></p>
+      <p><b>Teléfono:</b> +593 4 259-4800</p>
+    </div>
+    <div style="margin-bottom: 15px;">
+      <h4>Síguenos en redes sociales</h4>
+      <a href="https://www.facebook.com/alcaldiaguayaquil" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="30" alt="Facebook" style="margin: 5px;">
+      </a>
+      <a href="https://x.com/alcaldiagye" target="_blank">
+        <img src="https://vectorseek.com/wp-content/uploads/2023/07/Twitter-X-Logo-Vector-01-2.jpg" width="30" alt="Twitter" style="margin: 5px;">
+      </a>
+      <a href="https://www.instagram.com/municipiodeguayaquil/" target="_blank">
+        <img src="https://www.iservice.at/wp-content/uploads/2020/12/Instagram-Flaticon.png" width="30" alt="Instagram" style="margin: 5px;">
+      </a>
+      <a href="https://www.guayaquil.gob.ec/" target="_blank">
+        <img src="https://www.guayaquil.gob.ec/wp-content/uploads/2024/02/banner-orden-dia-mobile-v2.jpg" width="30" alt="Web" style="margin: 5px;">
+      </a>
+    </div>
+    <p style="font-size: 12px;">© 2025 Municipio de Guayaquil. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Botón con dato curioso
+    function mostrarDato() {
+      const dato = "El barrio Las Peñas en Guayaquil fue declarado Patrimonio Cultural en 1982 y es uno de los más antiguos de la ciudad.";
+      document.getElementById("dato-curioso").innerText = dato;
+    }
+
+    // Carrusel de imágenes locales
+    const imagenes = [
+      "Imagenes/frente.jpg",
+      "Imagenes/peñas.jpg"
+    ];
+
+    let index = 0;
+
+    setInterval(() => {
+      index = (index + 1) % imagenes.length;
+      const img = document.getElementById("imagen-carrusel");
+      img.style.opacity = 0;
+      setTimeout(() => {
+        img.src = imagenes[index];
+        img.style.opacity = 1;
+      }, 1000);
+    }, 4000);
+  </script>
+</body>
+</html>
